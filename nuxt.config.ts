@@ -3,10 +3,10 @@ export default defineNuxtConfig({
 	devtools: { enabled: true },
 	modules: ['@nuxtjs/tailwindcss'],
 	runtimeConfig: {
-		resendApiKey: process.env.RESEND_API_KEY,
-		contactSenderEmail: process.env.CONTACT_SENDER_EMAIL,
-		contactSenderName: process.env.CONTACT_SENDER_NAME || 'CarMarkt Website',
-		contactRecipientEmail: process.env.CONTACT_RECIPIENT_EMAIL,
+		resendApiKey: '',
+		contactSenderEmail: '',
+		contactSenderName: 'CarMarkt Website',
+		contactRecipientEmail: '',
 		public: {
 			siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://carmarkt.net'
 		}
