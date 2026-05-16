@@ -1,5 +1,5 @@
 <template>
-	<div class="mb-[18px] flex flex-col gap-1.5">
+	<div class="mb-[18px] flex min-w-0 flex-col gap-1.5">
 		<label class="flex items-center gap-1.5 font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] text-muted" :for="id">
 			{{ label }}
 			<span v-if="required" class="font-bold text-accent">*</span>
