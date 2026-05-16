@@ -32,8 +32,8 @@
 				<div>
 					<h4 class="footer-heading">Rechtliches</h4>
 					<ul class="flex flex-col gap-3">
-						<li><a class="footer-link" href="#">Impressum</a></li>
-						<li><a class="footer-link" href="#">Datenschutz</a></li>
+						<li><a class="footer-link" href="/impressum">Impressum</a></li>
+						<li><a class="footer-link" href="/datenschutz">Datenschutz</a></li>
 					</ul>
 				</div>
 			</div>

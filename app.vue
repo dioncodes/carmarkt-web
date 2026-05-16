@@ -1,13 +1,7 @@
 <template>
 	<div>
 		<AppHeader />
-		<main>
-			<HeroSection />
-			<ServicesSection />
-			<LocationSection />
-			<ContactSection />
-			<RequestFormSection />
-		</main>
+		<NuxtPage />
 		<SiteFooter />
 	</div>
 </template>

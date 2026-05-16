@@ -4,7 +4,7 @@
 			<SectionHeading
 				dark
 				eyebrow="Anfahrt"
-				lede="Direkt an der A40, im Hinterhof der TÜV-Nord Prüfstelle. Ein paar Hundert Meter von der Autobahn - gegenüber der Haltestelle Willy-Brandt-Schule."
+				lede="Direkt an der A40, im Hinterhof der TÜV-Nord Prüfstelle. Ein paar Hundert Meter von der Autobahn - gut erreichbar aus Styrum, Dümpten, der Innenstadt und Oberhausen."
 			>
 				Ausfahrt<br>
 				Mülheim-Styrum.

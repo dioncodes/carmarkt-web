@@ -6,22 +6,48 @@ export default defineNuxtConfig({
 		resendApiKey: process.env.RESEND_API_KEY,
 		contactSenderEmail: process.env.CONTACT_SENDER_EMAIL,
 		contactSenderName: process.env.CONTACT_SENDER_NAME || 'CarMarkt Website',
-		contactRecipientEmail: process.env.CONTACT_RECIPIENT_EMAIL
+		contactRecipientEmail: process.env.CONTACT_RECIPIENT_EMAIL,
+		public: {
+			siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://carmarkt.net'
+		}
 	},
 	app: {
 		head: {
 			htmlAttrs: {
 				lang: 'de'
 			},
-			title: 'CarMarkt - Kfz-Werkstatt Mülheim an der Ruhr',
+			title: 'CarMarkt | Freie Kfz-Werkstatt in Mülheim an der Ruhr',
 			meta: [
 				{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
 				{
 					name: 'description',
-					content: 'CarMarkt - freie Kfz-Werkstatt von Mark Purushotham, direkt an der A40 in Mülheim an der Ruhr. Reparatur, Inspektion, TÜV vor Ort. Termin nach Absprache.'
+					content: 'CarMarkt ist die freie Kfz-Werkstatt von Mark Purushotham in Mülheim an der Ruhr. Reparatur, Inspektion, Ölwechsel, TÜV/HU vor Ort und Termine nach Absprache.'
+				},
+				{ name: 'robots', content: 'index, follow' },
+				{ name: 'theme-color', content: '#15120e' },
+				{
+					name: 'keywords',
+					content: 'CarMarkt, Mark Purushotham, freie Werkstatt Mülheim, Werkstatt Mülheim Dümpten, Kfz Werkstatt Mülheim, TÜV Mülheim, Inspektion Mülheim'
+				},
+				{ property: 'og:type', content: 'website' },
+				{ property: 'og:locale', content: 'de_DE' },
+				{ property: 'og:site_name', content: 'CarMarkt' },
+				{ property: 'og:title', content: 'CarMarkt | Freie Kfz-Werkstatt in Mülheim an der Ruhr' },
+				{
+					property: 'og:description',
+					content: 'Freie Kfz-Werkstatt von Mark Purushotham in Mülheim an der Ruhr - Reparatur, Inspektion, Ölwechsel und TÜV/HU vor Ort.'
+				},
+				{ property: 'og:url', content: 'https://carmarkt.net/' },
+				{ name: 'twitter:card', content: 'summary' },
+				{ name: 'twitter:title', content: 'CarMarkt | Freie Kfz-Werkstatt in Mülheim an der Ruhr' },
+				{
+					name: 'twitter:description',
+					content: 'Freie Kfz-Werkstatt von Mark Purushotham in Mülheim an der Ruhr.'
 				}
 			],
 			link: [
+				{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+				{ rel: 'shortcut icon', href: '/favicon.svg' },
 				{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
 				{ rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
 				{

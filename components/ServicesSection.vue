@@ -3,7 +3,7 @@
 		<div class="site-container">
 			<SectionHeading
 				eyebrow="Leistungen"
-				lede="Alles, was eine freie Werkstatt macht. Bei besonderen Fällen fragen Sie einfach nach."
+				lede="Die freie Kfz-Werkstatt in Mülheim für Reparatur, Wartung, TÜV/HU und alles, was rund ums Auto zuverlässig erledigt werden muss."
 			>
 				Unser Service
 			</SectionHeading>
@@ -19,7 +19,7 @@
 			</ul>
 
 			<p class="mt-8 max-w-[56ch] border-t border-line pt-6 text-base text-muted">
-				TÜV-Nord prüft flexibel direkt vor Ort - HU und Werkstatt also in einem Termin erledigt. Stellplätze (auch für Motorräder) zur mittel- oder längerfristigen Unterbringung gibt es ebenfalls.
+				TÜV-Nord prüft flexibel direkt vor Ort - HU und Werkstatt also in einem Termin erledigt. Stellplätze, auch für Motorräder, zur mittel- oder längerfristigen Unterbringung gibt es ebenfalls.
 			</p>
 		</div>
 	</section>

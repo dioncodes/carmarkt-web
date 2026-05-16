@@ -57,8 +57,8 @@
 				<div class="mt-2 grid items-center gap-5 border-t border-[#e6e1d4] pt-5 sm:grid-cols-[1fr_auto]">
 					<div>
 						<p class="max-w-[50ch] text-[12.5px] leading-normal text-muted">
-							Mit Absenden stimme ich der Verarbeitung der Daten zur Bearbeitung der Anfrage zu. Mehr im
-							<a class="text-ink underline underline-offset-2 hover:text-accent" href="#">Datenschutz</a>.
+							Mit Absenden werden die Angaben zur Bearbeitung der Anfrage verarbeitet. Details stehen im
+							<a class="text-ink underline underline-offset-2 hover:text-accent" href="/datenschutz">Datenschutz</a>.
 						</p>
 						<p v-if="submitError" class="mt-3 text-sm font-semibold text-accent" role="alert">
 							{{ submitError }}

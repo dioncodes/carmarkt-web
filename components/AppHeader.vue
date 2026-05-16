@@ -25,7 +25,7 @@
 			]"
 		>
 			<div class="site-container flex h-[84px] items-center justify-between gap-6">
-				<a href="#top" class="block h-12" aria-label="CarMarkt Startseite" @click="closeMenu">
+				<a href="/" class="block h-12" aria-label="CarMarkt Startseite" @click="closeMenu">
 					<AppLogo />
 				</a>
 
