@@ -105,7 +105,7 @@ export default defineEventHandler(async (event) => {
 		text: lines.join('\n'),
 		html: `
 			<div style="font-family:Arial,sans-serif;color:#1d1b17;line-height:1.5;">
-				<h1 style="font-size:22px;margin:0 0 16px;">Neue Anfrage ueber carmarkt.net</h1>
+				<h1 style="font-size:22px;margin:0 0 16px;">Neue Anfrage über carmarkt.net</h1>
 				<table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:640px;border-top:1px solid #e6e1d4;">
 					${htmlRows}
 				</table>
