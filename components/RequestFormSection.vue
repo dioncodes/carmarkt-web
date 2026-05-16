@@ -39,7 +39,7 @@
 						<input id="phone" v-model.trim="form.phone" class="form-control" name="phone" type="tel" autocomplete="tel" placeholder="0170 0000000">
 					</FormField>
 					<FormField id="when" label="Wunschtermin" optional :error="errors.when">
-						<input id="when" v-model="form.when" class="form-control min-h-[47px]" name="when" type="datetime-local">
+						<input id="when" v-model="form.when" class="form-control" name="when" type="datetime-local">
 					</FormField>
 				</div>
 
@@ -75,7 +75,14 @@
 				</div>
 			</form>
 
-			<div v-else class="mx-auto mt-16 max-w-[760px] rounded-[18px] border border-line bg-surface p-[clamp(1.5rem,4vw,2.75rem)] text-center shadow-soft">
+			<div
+				v-else
+				ref="successAlert"
+				class="mx-auto mt-16 max-w-[760px] scroll-mt-32 rounded-[18px] border border-line bg-surface p-[clamp(1.5rem,4vw,2.75rem)] text-center shadow-soft"
+				role="status"
+				aria-live="polite"
+				tabindex="-1"
+			>
 				<div class="mx-auto mb-5 grid h-[60px] w-[60px] place-items-center rounded-full bg-[#e8f7ee] text-[#1a9851]">
 					<Check class="h-6 w-6" />
 				</div>
@@ -106,6 +113,7 @@ const errors = reactive<Record<string, string>>({})
 const submitted = ref(false)
 const isSubmitting = ref(false)
 const submitError = ref('')
+const successAlert = ref<HTMLElement | null>(null)
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -145,6 +153,9 @@ const submit = async () => {
 		})
 
 		submitted.value = true
+		await nextTick()
+		successAlert.value?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+		successAlert.value?.focus({ preventScroll: true })
 	} catch (error: any) {
 		const fieldErrors = error?.data?.data?.fieldErrors
 
