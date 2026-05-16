@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+	<defs>
+		<style>
+			.bg { fill: #f4f1ea; }
+			.accent { fill: #b10b16; }
+			.ink { fill: #15120e; }
+			.muted { fill: #6c655d; }
+			.line { stroke: #d9d3c6; stroke-width: 1.5; }
+			.display { font-family: 'Archivo', 'Inter', -apple-system, sans-serif; font-weight: 800; letter-spacing: -0.045em; }
+			.body { font-family: 'Manrope', -apple-system, sans-serif; }
+			.mono { font-family: 'JetBrains Mono', 'SF Mono', monospace; }
+		</style>
+	</defs>
+
+	<rect class="bg" width="1200" height="630"/>
+
+	<g transform="translate(0,0)" opacity="0.06">
+		<circle class="accent" cx="1080" cy="540" r="280"/>
+	</g>
+
+	<rect class="accent" x="80" y="92" width="4" height="34"/>
+	<text x="100" y="116" class="mono ink" font-size="20" font-weight="600" letter-spacing="0.04em">CARMARKT · MARK PURUSHOTHAM · SEIT 1999</text>
+
+	<g transform="translate(80, 210)">
+		<text class="display accent" font-size="104" y="84">CarMarkt.</text>
+		<text class="display ink" font-size="80" y="188">Freie Werkstatt</text>
+		<text class="display ink" font-size="80" y="272">in Mülheim.</text>
+	</g>
+
+	<g transform="translate(80, 555)">
+		<g transform="translate(0, -8)">
+			<circle class="accent" cx="9" cy="0" r="9"/>
+			<circle fill="#f4f1ea" cx="9" cy="0" r="3"/>
+		</g>
+		<text x="34" y="-2" class="body ink" font-size="22" font-weight="600">Direkt an der A40 · Mülheim an der Ruhr</text>
+		<text x="34" y="32" class="body muted" font-size="20" font-weight="500">Reparatur · Inspektion · Ölwechsel · TÜV / HU</text>
+	</g>
+
+	<g transform="translate(1120, 555)" text-anchor="end">
+		<text x="0" y="-2" class="mono ink" font-size="22" font-weight="600">0208 / 385 479 60</text>
+		<text x="0" y="32" class="mono muted" font-size="16" font-weight="500" letter-spacing="0.08em">CARMARKT.NET</text>
+	</g>
+</svg>

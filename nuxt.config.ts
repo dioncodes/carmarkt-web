@@ -38,12 +38,18 @@ export default defineNuxtConfig({
 					content: 'Freie Kfz-Werkstatt von Mark Purushotham in Mülheim an der Ruhr - Reparatur, Inspektion, Ölwechsel und TÜV/HU vor Ort.'
 				},
 				{ property: 'og:url', content: 'https://carmarkt.net/' },
-				{ name: 'twitter:card', content: 'summary' },
+				{ property: 'og:image', content: 'https://carmarkt.net/og-image.png' },
+				{ property: 'og:image:type', content: 'image/png' },
+				{ property: 'og:image:width', content: '1200' },
+				{ property: 'og:image:height', content: '630' },
+				{ property: 'og:image:alt', content: 'CarMarkt - Freie Werkstatt in Mülheim an der Ruhr' },
+				{ name: 'twitter:card', content: 'summary_large_image' },
 				{ name: 'twitter:title', content: 'CarMarkt | Freie Kfz-Werkstatt in Mülheim an der Ruhr' },
 				{
 					name: 'twitter:description',
 					content: 'Freie Kfz-Werkstatt von Mark Purushotham in Mülheim an der Ruhr.'
-				}
+				},
+				{ name: 'twitter:image', content: 'https://carmarkt.net/og-image.png' }
 			],
 			link: [
 				{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
