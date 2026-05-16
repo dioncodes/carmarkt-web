@@ -1,11 +1,7 @@
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { schedule } from '~/data/site'
 
-const getTodayIndex = () => {
-	const now = new Date()
-
-	return (now.getDay() + 6) % 7
-}
+const getTodayIndex = (date: Date) => (date.getDay() + 6) % 7
 
 const toMinutes = (time: string) => {
 	const [hours, minutes] = time.split(':').map(Number)
@@ -14,8 +10,13 @@ const toMinutes = (time: string) => {
 }
 
 export function useBusinessHours() {
-	const now = ref(new Date())
-	const todayIndex = computed(getTodayIndex)
+	const now = ref<Date | null>(null)
+
+	onMounted(() => {
+		now.value = new Date()
+	})
+
+	const todayIndex = computed(() => (now.value ? getTodayIndex(now.value) : -1))
 	const formatHours = (open: string, close: string) => `<strong class="font-semibold">ca. ${open} - ${close}</strong> und nach Absprache`
 
 	const rows = computed(() => schedule.map((item, index) => ({
@@ -38,6 +39,15 @@ export function useBusinessHours() {
 	})
 
 	const status = computed(() => {
+		if (!now.value || todayIndex.value < 0) {
+			return {
+				label: '',
+				utilityLabel: '',
+				next: '',
+				open: false
+			}
+		}
+
 		const item = schedule[todayIndex.value]
 
 		if (!item.open || !item.close) {
