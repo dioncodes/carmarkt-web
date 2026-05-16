@@ -36,7 +36,7 @@ export const contactLinks = [
 	{
 		label: 'E-Mail',
 		value: 'info@carmarkt.net',
-		help: 'Für alles, was nicht eilt.',
+		help: 'Für Anfragen, die nicht eilen.',
 		href: 'mailto:info@carmarkt.net',
 		type: 'mail',
 		primary: false

@@ -3,7 +3,7 @@
 		<div class="site-container">
 			<SectionHeading
 				eyebrow="Leistungen"
-				lede="Das Übliche, was eine freie Werkstatt macht. Bei besonderen Fällen einfach fragen."
+				lede="Alles, was eine freie Werkstatt macht. Bei besonderen Fällen fragen Sie einfach nach."
 			>
 				Unser Service
 			</SectionHeading>

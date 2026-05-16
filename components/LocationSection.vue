@@ -33,8 +33,8 @@
 					<div class="flex items-start gap-4 rounded-[10px] bg-accent px-7 py-6 text-white">
 						<Phone class="mt-0.5 h-5 w-5 shrink-0" />
 						<div>
-							<div class="font-display text-lg font-bold tracking-tight">Trotzdem nicht gefunden?</div>
-							<div class="text-sm leading-normal opacity-95">Einfach kurz anrufen - kein Stress.</div>
+							<div class="font-display text-lg font-bold tracking-tight">Nicht direkt gefunden?</div>
+							<div class="text-sm leading-normal opacity-95">Rufen Sie kurz an - wir helfen Ihnen weiter.</div>
 						</div>
 					</div>
 				</div>
@@ -49,6 +49,6 @@ import { Phone } from 'lucide-vue-next'
 const steps = [
 	'A40-Ausfahrt <strong class="font-semibold text-accent">Mülheim-Styrum</strong>, Richtung Mülheim.',
 	'Nach <strong class="font-semibold text-accent">100 Metern</strong> auf der rechten Seite, Höhe <strong class="font-semibold text-accent">Haltestelle Willy-Brandt-Schule</strong>.',
-	'Bitte kurz anrufen, oder wenn das Tor der Prüfstelle geöffnet ist, nach hinten durchgehen.'
+	'Bitte rufen Sie kurz an. Wenn das Tor der Prüfstelle geöffnet ist, gehen Sie nach hinten durch.'
 ]
 </script>

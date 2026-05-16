@@ -40,7 +40,7 @@
 						<HoursList />
 					</div>
 					<p class="mt-3 text-[13px] leading-normal text-muted">
-						Zeiten sind Richtwerte. Außerhalb gerne nach Absprache - einfach kurz anrufen.
+						Zeiten sind Richtwerte. Außerhalb der Öffnungszeiten gerne nach Absprache - rufen Sie einfach kurz an.
 					</p>
 				</div>
 			</div>

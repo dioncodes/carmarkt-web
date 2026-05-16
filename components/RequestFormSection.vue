@@ -3,7 +3,7 @@
 		<div class="site-container">
 			<SectionHeading
 				eyebrow="Nachricht"
-				lede="Anruf reicht meistens. Wenn's nicht eilt oder Sie lieber alles schriftlich haben, geht's auch hier. Antwort kommt am selben oder nächsten Werktag."
+				lede="Ein Anruf reicht meistens. Wenn es nicht eilt oder Sie lieber alles schriftlich haben, nutzen Sie gern das Formular. Wir antworten am selben oder nächsten Werktag."
 			>
 				Oder kurz<br>
 				schreiben.
@@ -15,7 +15,7 @@
 				novalidate
 				@submit.prevent="submit"
 			>
-				<FormField id="reason" label="Worum geht's?" optional :error="errors.reason">
+				<FormField id="reason" label="Worum geht es?" optional :error="errors.reason">
 					<div class="relative">
 						<select id="reason" v-model="form.reason" name="reason" class="form-control appearance-none pr-10">
 							<option value="">-- bitte auswählen --</option>
@@ -50,7 +50,7 @@
 						class="form-control min-h-[110px] resize-y leading-normal"
 						name="message"
 						rows="5"
-						placeholder="Marke / Modell, was ist los, gewünschter Termin ... alles was hilft."
+						placeholder="Marke / Modell, Anliegen, gewünschter Termin ... alles, was hilft."
 					/>
 				</FormField>
 
@@ -81,7 +81,7 @@
 				</div>
 				<h3 class="font-display text-[28px] font-bold tracking-tight">Vielen Dank für Ihre Nachricht</h3>
 				<p class="mt-2 text-muted">
-					Antwort kommt meistens am selben oder nächsten Werktag.<br />Wenn es eilt:
+					Wir antworten meistens am selben oder nächsten Werktag.<br />Wenn es eilt, rufen Sie bitte an:
 					<a class="border-b border-line text-ink hover:border-accent hover:text-accent" href="tel:+4920838547960">0208 / 385 479 60</a>.
 				</p>
 			</div>
