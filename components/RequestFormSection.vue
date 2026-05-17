@@ -89,7 +89,7 @@
 				<h3 class="font-display text-[28px] font-bold tracking-tight">Vielen Dank für Ihre Nachricht</h3>
 				<p class="mt-2 text-muted">
 					Wir antworten meistens am selben oder nächsten Werktag.<br />Wenn es eilt, rufen Sie bitte an:
-					<a class="border-b border-line text-ink hover:border-accent hover:text-accent" href="tel:+4920838547960">0208 / 385 479 60</a>.
+					<a class="border-b border-line text-ink hover:border-accent hover:text-accent" href="tel:+491722178878">0172 / 217 88 78</a>.
 				</p>
 			</div>
 		</div>

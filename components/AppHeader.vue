@@ -3,17 +3,17 @@
 		<div class="bg-dark text-xs font-mono tracking-[0.06em] text-[#9a9388]">
 			<div class="site-container flex h-9 items-center justify-between gap-4 overflow-hidden">
 				<div class="flex min-w-0 items-center gap-5">
-					<span :class="['inline-flex items-center gap-2 whitespace-nowrap', !status.open && 'closed-dot']">
+					<span class="inline-flex items-center gap-2 whitespace-nowrap">
 						<span class="live-dot" />
-						<span>{{ status.utilityLabel }}</span>
+						<span>Termin nach Vereinbarung</span>
 					</span>
 					<span class="text-[#3a3530]">·</span>
 					<span class="hidden whitespace-nowrap sm:inline">Oberhausener Str. 213, Mülheim · direkt an der A40</span>
 				</div>
 				<div class="hidden items-center gap-4 whitespace-nowrap md:flex">
-					<a class="hover:text-bg" href="tel:+4920838547960">0208 / 385 479 60</a>
-					<span class="text-[#3a3530]">·</span>
 					<a class="hover:text-bg" href="tel:+491722178878">Mobil 0172 / 217 88 78</a>
+					<span class="text-[#3a3530]">·</span>
+					<a class="hover:text-bg" href="tel:+4920838547960">0208 / 385 479 60</a>
 				</div>
 			</div>
 		</div>
@@ -43,7 +43,7 @@
 				</nav>
 
 				<div class="flex items-center gap-2">
-					<AppButton to="tel:+4920838547960" size="sm">
+					<AppButton to="tel:+491722178878" size="sm">
 						<Phone class="h-3.5 w-3.5" />
 						Anrufen
 					</AppButton>
@@ -77,8 +77,8 @@
 				</li>
 			</ul>
 			<div class="mt-8 grid gap-3">
-				<AppButton to="tel:+4920838547960" size="lg">0208 / 385 479 60</AppButton>
-				<AppButton to="tel:+491722178878" variant="ghost" size="lg">Mobil: 0172 / 217 88 78</AppButton>
+				<AppButton to="tel:+491722178878" size="lg">Mobil: 0172 / 217 88 78</AppButton>
+				<AppButton to="tel:+4920838547960" variant="ghost" size="lg">0208 / 385 479 60</AppButton>
 			</div>
 		</div>
 	</header>
@@ -90,7 +90,6 @@ import { navItems } from '~/data/site'
 
 const menuOpen = ref(false)
 const isScrolled = ref(false)
-const { status } = useBusinessHours()
 
 const closeMenu = () => {
 	menuOpen.value = false

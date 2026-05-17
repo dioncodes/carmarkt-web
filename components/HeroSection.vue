@@ -10,12 +10,12 @@
 					Freie Werkstatt in Mülheim.
 				</h1>
 				<p class="reveal max-w-[56ch] text-[clamp(1.125rem,1.6vw,1.375rem)] leading-normal text-ink/90">
-					Direkt an der A40. Mo-Do <strong class="font-semibold text-ink">ca. 09:30 - 13:00</strong> und nach Absprache. Rufen Sie am besten kurz an.
+					Direkt an der A40. <strong class="font-semibold text-ink">Termine ausschließlich nach Absprache</strong>.
 				</p>
 				<div class="reveal mt-2 flex flex-wrap gap-3">
-					<AppButton to="tel:+4920838547960" size="lg">
+					<AppButton to="tel:+491722178878" size="lg">
 						<Phone class="h-4 w-4" />
-						0208 / 385 479 60
+						0172 / 217 88 78
 					</AppButton>
 					<AppButton to="/#anfahrt" variant="ghost" size="lg">
 						<MapPin class="h-4 w-4" />

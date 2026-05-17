@@ -35,12 +35,14 @@
 				</a>
 
 				<div class="rounded-[18px] border border-line bg-surface p-5 md:col-span-2">
-					<span class="font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] text-muted">Öffnungszeiten</span>
-					<div class="mt-3">
-						<HoursList />
-					</div>
-					<p class="mt-3 text-[13px] leading-normal text-muted">
-						Zeiten sind Richtwerte. Außerhalb der Öffnungszeiten gerne nach Absprache - rufen Sie einfach kurz an.
+					<span class="font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] text-muted">Termine</span>
+					<p class="mt-3 font-display text-[22px] font-bold leading-tight tracking-tight text-ink">
+						Nur nach Vereinbarung.
+					</p>
+					<p class="mt-3 max-w-[60ch] text-[14.5px] leading-normal text-muted">
+						Es gibt keine festen Öffnungszeiten mehr. Vereinbaren Sie einen Termin telefonisch, per E-Mail oder über das
+						<a class="border-b border-line text-ink hover:border-accent hover:text-accent" href="/#anfrage">Formular</a>
+						- wir melden uns zurück.
 					</p>
 				</div>
 			</div>
