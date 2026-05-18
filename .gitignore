@@ -3,4 +3,5 @@
 !.env.example
 .nuxt
 .output
+dist
 node_modules

@@ -4,7 +4,7 @@ Repository guidance for coding agents working on this project. Keep this file up
 
 ## Project Summary
 
-This is the Nuxt 3 website for CarMarkt, a German automotive workshop in Muelheim an der Ruhr. It is a mostly static marketing and legal site with a contact form backed by a Nitro server endpoint that sends email through Resend.
+This is the Nuxt 4 website for CarMarkt, a German automotive workshop in Muelheim an der Ruhr. It is a mostly static marketing and legal site with a contact form backed by a Nitro server endpoint that sends email through Resend.
 
 Primary goals:
 
@@ -17,32 +17,33 @@ Primary goals:
 ## Current Structure
 
 ```text
-app.vue                    App shell: AppHeader, NuxtPage, SiteFooter, global OG image metadata
-assets/
-  carmarkt-logo.svg        Logo source asset
-  css/main.css             Tailwind layers, CSS variables, reusable classes, animations
-components/
-  AppButton.vue            Shared button component
-  AppHeader.vue            Site header and navigation
-  AppLogo.vue              Logo rendering
-  ContactSection.vue       Contact options section
-  FormField.vue            Shared form field wrapper
-  HeroSection.vue          Homepage hero
-  LocationMap.vue          Location/map presentation
-  LocationSection.vue      Address and map section
-  MapLabel.vue             Map label helper component
-  RequestFormSection.vue   Client contact form UI and client-side validation
-  SectionHeading.vue       Shared section heading component
-  ServicesSection.vue      Services presentation
-  SiteFooter.vue           Footer and legal links
-composables/
-  useRevealOnScroll.ts     Client-side reveal-on-scroll behavior
-data/
-  site.ts                  Canonical business data, nav items, services, contacts, request reasons
-pages/
-  index.vue                Homepage composition plus JSON-LD structured data
-  impressum.vue            German legal notice page
-  datenschutz.vue          German privacy policy page
+app/
+  app.vue                  App shell: AppHeader, NuxtPage, SiteFooter, global OG image metadata
+  assets/
+    carmarkt-logo.svg      Logo source asset
+    css/main.css           Tailwind layers, CSS variables, reusable classes, animations
+  components/
+    AppButton.vue          Shared button component
+    AppHeader.vue          Site header and navigation
+    AppLogo.vue            Logo rendering
+    ContactSection.vue     Contact options section
+    FormField.vue          Shared form field wrapper
+    HeroSection.vue        Homepage hero
+    LocationMap.vue        Location/map presentation
+    LocationSection.vue    Address and map section
+    MapLabel.vue           Map label helper component
+    RequestFormSection.vue Client contact form UI and client-side validation
+    SectionHeading.vue     Shared section heading component
+    ServicesSection.vue    Services presentation
+    SiteFooter.vue         Footer and legal links
+  composables/
+    useRevealOnScroll.ts   Client-side reveal-on-scroll behavior
+  data/
+    site.ts                Canonical business data, nav items, services, contacts, request reasons
+  pages/
+    index.vue              Homepage composition plus JSON-LD structured data
+    impressum.vue          German legal notice page
+    datenschutz.vue        German privacy policy page
 public/
   favicon.svg              Site favicon
   og-image.png             Primary social sharing image
@@ -58,6 +59,7 @@ tsconfig.json              Nuxt-generated TypeScript extension
 
 ## Commands
 
+- Use Node.js `^22.12.0`, `^24.11.0`, or `>=26.0.0`.
 - `npm install` installs dependencies.
 - `npm run dev` starts the Nuxt dev server.
 - `npm run build` builds for production.
@@ -83,17 +85,18 @@ Do not commit real secrets. `.env` and `.env.*` are ignored except `.env.example
 
 ## Implementation Notes
 
-- Prefer updating `data/site.ts` for business facts, contact details, services, navigation, and request reasons before duplicating values in components.
+- Prefer updating `app/data/site.ts` for business facts, contact details, services, navigation, and request reasons before duplicating values in components.
 - Keep visible site copy in German unless there is a specific reason to add another language.
 - Use existing Vue single-file component patterns and Nuxt auto-import conventions.
+- The project uses the Nuxt 4 app directory structure. Vue app files live under `app/`; Nitro endpoints remain under root-level `server/`; static public assets remain under root-level `public/`.
 - Preserve TypeScript in `<script setup lang="ts">` where already used.
-- Use Tailwind utility classes and the design tokens defined in `assets/css/main.css` and `tailwind.config.ts`.
+- Use Tailwind utility classes and the design tokens defined in `app/assets/css/main.css` and `tailwind.config.ts`.
 - Icons come from `lucide-vue-next`; prefer that package when adding new interface icons.
-- Contact form validation exists on both the client (`components/RequestFormSection.vue`) and server (`server/api/contact.post.ts`). Keep required-field behavior aligned.
+- Contact form validation exists on both the client (`app/components/RequestFormSection.vue`) and server (`server/api/contact.post.ts`). Keep required-field behavior aligned.
 - The contact API escapes HTML before sending email. Preserve that safety behavior when changing email templates.
-- Homepage structured data is in `pages/index.vue`; update it when business identity, address, services, or canonical URL behavior changes.
-- Global metadata is split between `nuxt.config.ts`, `app.vue`, and route-specific `useHead` calls. Check all relevant locations when changing SEO behavior.
-- Visitors.now tracking is injected globally from `nuxt.config.ts` using the public project token. Keep this aligned with `pages/datenschutz.vue`.
+- Homepage structured data is in `app/pages/index.vue`; update it when business identity, address, services, or canonical URL behavior changes.
+- Global metadata is split between `nuxt.config.ts`, `app/app.vue`, and route-specific `useHead` calls. Check all relevant locations when changing SEO behavior.
+- Visitors.now tracking is injected globally from `nuxt.config.ts` using the public project token. Keep this aligned with `app/pages/datenschutz.vue`.
 
 ## Maintenance Expectations
 
