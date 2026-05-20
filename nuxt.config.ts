@@ -1,12 +1,18 @@
 export default defineNuxtConfig({
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },
-	modules: ['@nuxtjs/tailwindcss'],
+	modules: ['@nuxtjs/tailwindcss', '@nuxtjs/turnstile'],
+	turnstile: {
+		siteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY
+	},
 	runtimeConfig: {
 		resendApiKey: '',
 		contactSenderEmail: '',
 		contactSenderName: 'CarMarkt Website',
 		contactRecipientEmail: '',
+		turnstile: {
+			secretKey: process.env.NUXT_TURNSTILE_SECRET_KEY || process.env.TURNSTILE_SECRET_KEY
+		},
 		public: {
 			siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://carmarkt.net'
 		}

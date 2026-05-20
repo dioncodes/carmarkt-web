@@ -15,6 +15,11 @@
 				novalidate
 				@submit.prevent="submit"
 			>
+				<div class="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+					<label for="website">Website</label>
+					<input id="website" v-model.trim="form.website" name="website" type="text" tabindex="-1" autocomplete="off">
+				</div>
+
 				<FormField id="reason" label="Worum geht es?" optional :error="errors.reason">
 					<div class="relative">
 						<select id="reason" v-model="form.reason" name="reason" class="form-control appearance-none pr-10">
@@ -53,6 +58,16 @@
 						placeholder="Marke / Modell, Anliegen, gewünschter Termin ... alles, was hilft."
 					/>
 				</FormField>
+
+				<div v-if="turnstileSiteKey" class="mb-[18px]">
+					<NuxtTurnstile
+						ref="turnstile"
+						v-model="turnstileToken"
+						class="min-h-[65px]"
+						:options="turnstileOptions"
+					/>
+					<p v-if="errors.turnstile" class="mt-1.5 text-sm text-accent" role="alert">{{ errors.turnstile }}</p>
+				</div>
 
 				<div class="mt-2 grid items-center gap-5 border-t border-[#e6e1d4] pt-5 sm:grid-cols-[1fr_auto]">
 					<div>
@@ -100,13 +115,18 @@
 import { ArrowUpRight, Check, ChevronDown } from 'lucide-vue-next'
 import { requestReasons } from '~/data/site'
 
+type TurnstileComponent = {
+	reset: () => void
+}
+
 const form = reactive({
 	reason: '',
 	name: '',
 	email: '',
 	phone: '',
 	when: '',
-	message: ''
+	message: '',
+	website: ''
 })
 
 const errors = reactive<Record<string, string>>({})
@@ -114,8 +134,36 @@ const submitted = ref(false)
 const isSubmitting = ref(false)
 const submitError = ref('')
 const successAlert = ref<HTMLElement | null>(null)
+const turnstile = ref<TurnstileComponent | null>(null)
+const turnstileToken = ref('')
+const turnstileSiteKey = String(useRuntimeConfig().public.turnstile?.siteKey || '')
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+const clearError = (key: string) => {
+	delete errors[key]
+}
+
+const handleTurnstileExpired = () => {
+	turnstileToken.value = ''
+}
+
+const handleTurnstileError = () => {
+	turnstileToken.value = ''
+	errors.turnstile = 'Die Sicherheitsprüfung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.'
+}
+
+const turnstileOptions = {
+	theme: 'light',
+	language: 'de',
+	'expired-callback': handleTurnstileExpired,
+	'error-callback': handleTurnstileError
+}
+
+const resetTurnstile = () => {
+	turnstileToken.value = ''
+	turnstile.value?.reset()
+}
 
 const validate = () => {
 	Object.keys(errors).forEach((key) => {
@@ -134,6 +182,10 @@ const validate = () => {
 		errors.message = 'Bitte Nachricht eintragen.'
 	}
 
+	if (turnstileSiteKey && !turnstileToken.value) {
+		errors.turnstile = 'Bitte Sicherheitsprüfung abschließen.'
+	}
+
 	return Object.keys(errors).length === 0
 }
 
@@ -149,7 +201,10 @@ const submit = async () => {
 	try {
 		await $fetch('/api/contact', {
 			method: 'POST',
-			body: { ...form }
+			body: {
+				...form,
+				turnstileToken: turnstileToken.value
+			}
 		})
 
 		submitted.value = true
@@ -164,6 +219,7 @@ const submit = async () => {
 		}
 
 		submitError.value = error?.data?.statusMessage || 'Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es erneut oder rufen Sie kurz an.'
+		resetTurnstile()
 	} finally {
 		isSubmitting.value = false
 	}

@@ -84,6 +84,16 @@
 						geeigneter Garantien nach Art. 44 ff. DSGVO, insbesondere eines Auftragsverarbeitungsvertrags und EU-Standardvertragsklauseln.
 					</p>
 					<p>
+						Zum Schutz des Kontaktformulars vor automatisierten Spam-Anfragen setzen wir Cloudflare Turnstile ein. Anbieter ist Cloudflare, Inc.
+						Beim Laden und Ausführen der Sicherheitsprüfung können technische Signale wie IP-Adresse, Browser- und Geräteinformationen,
+						Zeitpunkt, Referrer und Interaktionsdaten verarbeitet werden, um menschliche Nutzung von automatisierten Zugriffen zu unterscheiden.
+						Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt im Schutz der Website, des Formulars und unserer
+						Kommunikationssysteme vor Missbrauch. Weitere Informationen finden Sie in den Datenschutzhinweisen von Cloudflare unter
+						<a href="https://www.cloudflare.com/privacypolicy/" rel="noopener noreferrer">https://www.cloudflare.com/privacypolicy/</a> und in
+						den Turnstile-Hinweisen unter
+						<a href="https://www.cloudflare.com/turnstile-privacy-policy/" rel="noopener noreferrer">https://www.cloudflare.com/turnstile-privacy-policy/</a>.
+					</p>
+					<p>
 						Anfragen ohne anschließenden Auftrag löschen wir regelmäßig, sobald die Anfrage abschließend erledigt ist und keine gesetzlichen
 						Aufbewahrungspflichten oder berechtigten Dokumentationsinteressen entgegenstehen. Geschäftsbriefe, angebots- oder
 						abrechnungsrelevante Kommunikation speichern wir nach den handels- und steuerrechtlichen Vorgaben.
@@ -199,7 +209,7 @@
 					</p>
 				</section>
 
-				<p class="legal-updated">Stand: 16. Mai 2026</p>
+				<p class="legal-updated">Stand: 20. Mai 2026</p>
 			</article>
 		</div>
 	</main>
@@ -213,7 +223,7 @@ useHead({
 	meta: [
 		{
 			name: 'description',
-			content: 'Datenschutzerklärung von CarMarkt zu Website, Kontaktformular, Visitors.now Analytics sowie CRM- und Rechnungsdaten.'
+			content: 'Datenschutzerklärung von CarMarkt zu Website, Kontaktformular, Cloudflare Turnstile, Visitors.now Analytics sowie CRM- und Rechnungsdaten.'
 		}
 	],
 	link: [

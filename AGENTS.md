@@ -11,7 +11,7 @@ Primary goals:
 - Present CarMarkt services, location, and contact options in German.
 - Keep legal pages and business information accurate.
 - Preserve SEO metadata, structured data, sitemap, robots, favicon, and Open Graph assets.
-- Keep the contact form reliable and privacy-conscious.
+- Keep the contact form reliable, spam-resistant, and privacy-conscious.
 - Keep Visitors.now reach measurement aligned with the privacy policy.
 
 ## Current Structure
@@ -32,7 +32,7 @@ app/
     LocationMap.vue        Location/map presentation
     LocationSection.vue    Address and map section
     MapLabel.vue           Map label helper component
-    RequestFormSection.vue Client contact form UI and client-side validation
+    RequestFormSection.vue Client contact form UI, client-side validation, honeypot, and Turnstile widget
     SectionHeading.vue     Shared section heading component
     ServicesSection.vue    Services presentation
     SiteFooter.vue         Footer and legal links
@@ -51,7 +51,7 @@ public/
   robots.txt               Search crawler rules
   sitemap.xml              Static sitemap
 server/
-  api/contact.post.ts      Nitro POST endpoint for contact form validation and Resend delivery
+  api/contact.post.ts      Nitro POST endpoint for contact form validation, bot checks, and Resend delivery
 nuxt.config.ts             Nuxt config, runtime config, global metadata, Tailwind module, CSS entry
 tailwind.config.ts         Tailwind content globs, theme colors, fonts, shadows
 tsconfig.json              Nuxt-generated TypeScript extension
@@ -70,16 +70,18 @@ There are currently no dedicated lint, format, or test scripts in `package.json`
 
 ## Environment
 
-`.env.example` documents the private settings used by the contact API:
+`.env.example` documents the private contact API settings and public Turnstile widget setting:
 
 ```text
 RESEND_API_KEY=re_xxxxxxxxx
 CONTACT_SENDER_EMAIL=kontakt@example.com
 CONTACT_SENDER_NAME=CarMarkt Website
 CONTACT_RECIPIENT_EMAIL=info@carmarkt.net
+NUXT_PUBLIC_TURNSTILE_SITE_KEY=0x4AAAA...
+NUXT_TURNSTILE_SECRET_KEY=0x4AAAA...
 ```
 
-`nuxt.config.ts` also exposes `runtimeConfig.public.siteUrl`, sourced from `NUXT_PUBLIC_SITE_URL` with a fallback of `https://carmarkt.net`.
+`nuxt.config.ts` also exposes `runtimeConfig.public.siteUrl`, sourced from `NUXT_PUBLIC_SITE_URL` with a fallback of `https://carmarkt.net`. The `@nuxtjs/turnstile` module uses `NUXT_PUBLIC_TURNSTILE_SITE_KEY` for the public site key and `NUXT_TURNSTILE_SECRET_KEY` for server validation.
 
 Do not commit real secrets. `.env` and `.env.*` are ignored except `.env.example`.
 
@@ -93,10 +95,11 @@ Do not commit real secrets. `.env` and `.env.*` are ignored except `.env.example
 - Use Tailwind utility classes and the design tokens defined in `app/assets/css/main.css` and `tailwind.config.ts`.
 - Icons come from `lucide-vue-next`; prefer that package when adding new interface icons.
 - Contact form validation exists on both the client (`app/components/RequestFormSection.vue`) and server (`server/api/contact.post.ts`). Keep required-field behavior aligned.
+- Contact form spam prevention uses a hidden honeypot field and Cloudflare Turnstile through `@nuxtjs/turnstile`. The client sends `turnstileToken`; the server validates it with the module's `verifyTurnstileToken` helper when both Turnstile keys are configured. If only one Turnstile key is configured, the endpoint fails closed.
 - The contact API escapes HTML before sending email. Preserve that safety behavior when changing email templates.
 - Homepage structured data is in `app/pages/index.vue`; update it when business identity, address, services, or canonical URL behavior changes.
 - Global metadata is split between `nuxt.config.ts`, `app/app.vue`, and route-specific `useHead` calls. Check all relevant locations when changing SEO behavior.
-- Visitors.now tracking is injected globally from `nuxt.config.ts` using the public project token. Keep this aligned with `app/pages/datenschutz.vue`.
+- Visitors.now tracking is injected globally from `nuxt.config.ts` using the public project token. Cloudflare Turnstile is loaded by the contact form when configured. Keep both aligned with `app/pages/datenschutz.vue`.
 
 ## Maintenance Expectations
 
@@ -105,7 +108,7 @@ Update this file whenever:
 - Files or directories are added, removed, renamed, or given new responsibility.
 - `package.json` scripts change.
 - Environment variables or runtime config keys change.
-- Contact form behavior, email delivery, or validation rules change.
+- Contact form behavior, email delivery, bot prevention, or validation rules change.
 - Visitors.now tracking behavior, project token, or related privacy wording changes.
 - SEO, legal page, sitemap, robots, or deployment assumptions change.
 - A new testing, linting, formatting, deployment, or content workflow is introduced.

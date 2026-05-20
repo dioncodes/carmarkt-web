@@ -9,6 +9,13 @@ type ContactPayload = {
 	phone?: unknown
 	when?: unknown
 	message?: unknown
+	website?: unknown
+	turnstileToken?: unknown
+}
+
+type TurnstileVerification = {
+	success?: boolean
+	'error-codes'?: string[]
 }
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -36,6 +43,12 @@ export default defineEventHandler(async (event) => {
 	const phone = asTrimmedString(body.phone)
 	const when = asTrimmedString(body.when)
 	const message = asTrimmedString(body.message)
+	const website = asTrimmedString(body.website)
+	const turnstileToken = asTrimmedString(body.turnstileToken)
+
+	if (website) {
+		return { ok: true }
+	}
 
 	const fieldErrors: Record<string, string> = {}
 
@@ -60,10 +73,50 @@ export default defineEventHandler(async (event) => {
 	}
 
 	const config = useRuntimeConfig()
+	const turnstileSecretKey = getPrivateEnv(config.turnstile?.secretKey, 'TURNSTILE_SECRET_KEY')
+	const turnstileSiteKey = asTrimmedString(config.public.turnstile?.siteKey)
 	const resendApiKey = getPrivateEnv(config.resendApiKey, 'RESEND_API_KEY')
 	const senderEmail = getPrivateEnv(config.contactSenderEmail, 'CONTACT_SENDER_EMAIL')
 	const senderName = getPrivateEnv(config.contactSenderName, 'CONTACT_SENDER_NAME') || 'CarMarkt Website'
 	const recipientEmail = getPrivateEnv(config.contactRecipientEmail, 'CONTACT_RECIPIENT_EMAIL')
+
+	if ((turnstileSiteKey && !turnstileSecretKey) || (turnstileSecretKey && !turnstileSiteKey)) {
+		throw createError({
+			statusCode: 500,
+			statusMessage: 'Die Sicherheitsprüfung ist noch nicht vollständig konfiguriert.'
+		})
+	}
+
+	if (turnstileSecretKey) {
+		if (!turnstileToken) {
+			throw createError({
+				statusCode: 422,
+				statusMessage: 'Bitte Sicherheitsprüfung abschließen.',
+				data: { fieldErrors: { turnstile: 'Bitte Sicherheitsprüfung abschließen.' } }
+			})
+		}
+
+		let verification: TurnstileVerification
+
+		try {
+			verification = await verifyTurnstileToken(turnstileToken, event)
+		} catch (error) {
+			console.warn('Error validating Turnstile token:', error)
+			throw createError({
+				statusCode: 502,
+				statusMessage: 'Die Sicherheitsprüfung konnte gerade nicht geprüft werden.'
+			})
+		}
+
+		if (!verification.success) {
+			console.warn('Turnstile validation failed:', verification['error-codes'])
+			throw createError({
+				statusCode: 403,
+				statusMessage: 'Die Sicherheitsprüfung ist fehlgeschlagen. Bitte versuchen Sie es erneut.',
+				data: { fieldErrors: { turnstile: 'Die Sicherheitsprüfung ist fehlgeschlagen. Bitte versuchen Sie es erneut.' } }
+			})
+		}
+	}
 
 	if (!resendApiKey || !senderEmail || !recipientEmail) {
 		throw createError({
