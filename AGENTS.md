@@ -96,6 +96,7 @@ Do not commit real secrets. `.env` and `.env.*` are ignored except `.env.example
 - Icons come from `lucide-vue-next`; prefer that package when adding new interface icons.
 - Contact form validation exists on both the client (`app/components/RequestFormSection.vue`) and server (`server/api/contact.post.ts`). Keep required-field behavior aligned.
 - Contact form spam prevention uses a hidden honeypot field and Cloudflare Turnstile through `@nuxtjs/turnstile`. The client sends `turnstileToken`; the server validates it with the module's `verifyTurnstileToken` helper when both Turnstile keys are configured. If only one Turnstile key is configured, the endpoint fails closed.
+- The contact API formats `datetime-local` Wunschtermin values for email display as German local date/time strings without timezone conversion.
 - The contact API escapes HTML before sending email. Preserve that safety behavior when changing email templates.
 - Homepage structured data is in `app/pages/index.vue`; update it when business identity, address, services, or canonical URL behavior changes.
 - Global metadata is split between `nuxt.config.ts`, `app/app.vue`, and route-specific `useHead` calls. Check all relevant locations when changing SEO behavior.

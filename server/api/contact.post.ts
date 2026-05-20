@@ -31,6 +31,17 @@ const escapeHtml = (value: string) => value
 
 const formatLine = (label: string, value: string) => `${label}: ${value || '-'}`
 
+const formatLocalDateTimeForEmail = (value: string) => {
+	const match = value.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::\d{2})?$/)
+
+	if (!match) {
+		return value
+	}
+
+	const [, year, month, day, hour, minute] = match
+	return `${day}.${month}.${year}, ${hour}:${minute} Uhr`
+}
+
 const getPrivateEnv = (runtimeValue: unknown, envName: string) => {
 	return asTrimmedString(runtimeValue) || asTrimmedString(process.env[envName])
 }
@@ -79,6 +90,7 @@ export default defineEventHandler(async (event) => {
 	const senderEmail = getPrivateEnv(config.contactSenderEmail, 'CONTACT_SENDER_EMAIL')
 	const senderName = getPrivateEnv(config.contactSenderName, 'CONTACT_SENDER_NAME') || 'CarMarkt Website'
 	const recipientEmail = getPrivateEnv(config.contactRecipientEmail, 'CONTACT_RECIPIENT_EMAIL')
+	const formattedWhen = formatLocalDateTimeForEmail(when)
 
 	if ((turnstileSiteKey && !turnstileSecretKey) || (turnstileSecretKey && !turnstileSiteKey)) {
 		throw createError({
@@ -130,7 +142,7 @@ export default defineEventHandler(async (event) => {
 		formatLine('Name', name),
 		formatLine('E-Mail', email),
 		formatLine('Telefon', phone),
-		formatLine('Wunschtermin', when),
+		formatLine('Wunschtermin', formattedWhen),
 		'',
 		'Nachricht:',
 		message
@@ -141,7 +153,7 @@ export default defineEventHandler(async (event) => {
 		['Name', name],
 		['E-Mail', email],
 		['Telefon', phone],
-		['Wunschtermin', when]
+		['Wunschtermin', formattedWhen]
 	].map(([label, value]) => `
 		<tr>
 			<th align="left" style="padding:8px 12px;border-bottom:1px solid #e6e1d4;font-family:Arial,sans-serif;font-size:14px;color:#6f6a60;">${escapeHtml(label)}</th>
