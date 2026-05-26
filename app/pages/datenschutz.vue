@@ -224,6 +224,16 @@ useHead({
 		{
 			name: 'description',
 			content: 'Datenschutzerklärung von CarMarkt zu Website, Kontaktformular, Cloudflare Turnstile, Visitors.now Analytics sowie CRM- und Rechnungsdaten.'
+		},
+		{ property: 'og:title', content: 'Datenschutz | CarMarkt' },
+		{
+			property: 'og:description',
+			content: 'Datenschutzerklärung von CarMarkt zu Website, Kontaktformular, Cloudflare Turnstile, Visitors.now Analytics sowie CRM- und Rechnungsdaten.'
+		},
+		{ name: 'twitter:title', content: 'Datenschutz | CarMarkt' },
+		{
+			name: 'twitter:description',
+			content: 'Datenschutzerklärung von CarMarkt zu Website, Kontaktformular, Cloudflare Turnstile, Visitors.now Analytics sowie CRM- und Rechnungsdaten.'
 		}
 	],
 	link: [

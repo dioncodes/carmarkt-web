@@ -81,7 +81,7 @@ NUXT_PUBLIC_TURNSTILE_SITE_KEY=0x4AAAA...
 NUXT_TURNSTILE_SECRET_KEY=0x4AAAA...
 ```
 
-`nuxt.config.ts` also exposes `runtimeConfig.public.siteUrl`, sourced from `NUXT_PUBLIC_SITE_URL` with a fallback of `https://carmarkt.net`. The `@nuxtjs/turnstile` module uses `NUXT_PUBLIC_TURNSTILE_SITE_KEY` for the public site key and `NUXT_TURNSTILE_SECRET_KEY` for server validation.
+`nuxt.config.ts` also exposes `runtimeConfig.public.siteUrl`, sourced from `NUXT_PUBLIC_SITE_URL` with a fallback of `https://carmarkt.net`. `*.vercel.app` values are ignored so canonical URLs and Open Graph assets stay on the production domain. The `@nuxtjs/turnstile` module uses `NUXT_PUBLIC_TURNSTILE_SITE_KEY` for the public site key and `NUXT_TURNSTILE_SECRET_KEY` for server validation.
 
 Do not commit real secrets. `.env` and `.env.*` are ignored except `.env.example`.
 

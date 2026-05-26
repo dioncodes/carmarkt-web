@@ -78,7 +78,7 @@ useHead({
 		{
 			key: 'structured-data',
 			type: 'application/ld+json',
-			children: JSON.stringify([localBusinessJsonLd, personJsonLd])
+			innerHTML: JSON.stringify([localBusinessJsonLd, personJsonLd])
 		}
 	]
 })

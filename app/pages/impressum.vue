@@ -102,6 +102,16 @@ useHead({
 		{
 			name: 'description',
 			content: 'Impressum und Anbieterkennzeichnung von CarMarkt - Fa. Purushotham in Mülheim an der Ruhr.'
+		},
+		{ property: 'og:title', content: 'Impressum | CarMarkt' },
+		{
+			property: 'og:description',
+			content: 'Impressum und Anbieterkennzeichnung von CarMarkt - Fa. Purushotham in Mülheim an der Ruhr.'
+		},
+		{ name: 'twitter:title', content: 'Impressum | CarMarkt' },
+		{
+			name: 'twitter:description',
+			content: 'Impressum und Anbieterkennzeichnung von CarMarkt - Fa. Purushotham in Mülheim an der Ruhr.'
 		}
 	],
 	link: [

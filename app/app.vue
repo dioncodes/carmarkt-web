@@ -9,12 +9,14 @@
 <script setup lang="ts">
 useRevealOnScroll()
 
-const siteUrl = useRuntimeConfig().public.siteUrl.replace(/\/$/, '')
+const route = useRoute()
+const siteUrl = String(useRuntimeConfig().public.siteUrl || 'https://carmarkt.net').replace(/\/$/, '')
 const ogImage = `${siteUrl}/og-image.png`
+const pageUrl = computed(() => `${siteUrl}${route.path === '/' ? '/' : route.path}`)
 
 useHead({
 	meta: [
-		{ property: 'og:url', content: `${siteUrl}/` },
+		{ property: 'og:url', content: pageUrl },
 		{ property: 'og:image', content: ogImage },
 		{ property: 'og:image:secure_url', content: ogImage },
 		{ property: 'og:image:type', content: 'image/png' },

@@ -89,7 +89,7 @@ npm run preview
 
 ## Configuration Notes
 
-- Public site URL is read from `NUXT_PUBLIC_SITE_URL`, falling back to `https://carmarkt.net`.
+- Public site URL is read from `NUXT_PUBLIC_SITE_URL`, falling back to `https://carmarkt.net`. `*.vercel.app` values are ignored so canonical URLs and Open Graph assets stay on the production domain.
 - Private contact settings are read from Nuxt runtime config or environment variables.
 - The contact endpoint requires `RESEND_API_KEY`, `CONTACT_SENDER_EMAIL`, and `CONTACT_RECIPIENT_EMAIL`.
 - Turnstile is handled by `@nuxtjs/turnstile` and is enabled when `NUXT_PUBLIC_TURNSTILE_SITE_KEY` and `NUXT_TURNSTILE_SECRET_KEY` are both configured. If only one key is set, the contact endpoint fails closed with a configuration error.

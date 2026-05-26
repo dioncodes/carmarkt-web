@@ -1,3 +1,31 @@
+const productionSiteUrl = 'https://carmarkt.net'
+
+const resolveSiteUrl = (value?: string) => {
+	const configuredValue = value?.trim().replace(/\/$/, '')
+
+	if (!configuredValue) {
+		return productionSiteUrl
+	}
+
+	const urlWithProtocol = /^https?:\/\//.test(configuredValue)
+		? configuredValue
+		: `https://${configuredValue}`
+
+	try {
+		const url = new URL(urlWithProtocol)
+
+		if (url.hostname.endsWith('.vercel.app')) {
+			return productionSiteUrl
+		}
+
+		return url.origin
+	} catch {
+		return productionSiteUrl
+	}
+}
+
+const siteUrl = resolveSiteUrl(process.env.NUXT_PUBLIC_SITE_URL)
+
 export default defineNuxtConfig({
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },
@@ -19,7 +47,7 @@ export default defineNuxtConfig({
 			secretKey: process.env.NUXT_TURNSTILE_SECRET_KEY || process.env.TURNSTILE_SECRET_KEY
 		},
 		public: {
-			siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://carmarkt.net'
+			siteUrl
 		}
 	},
 	app: {
