@@ -100,6 +100,7 @@ Do not commit real secrets. `.env` and `.env.*` are ignored except `.env.example
 - The contact API escapes HTML before sending email. Preserve that safety behavior when changing email templates.
 - Homepage structured data is in `app/pages/index.vue`; update it when business identity, address, services, or canonical URL behavior changes.
 - Global metadata is split between `nuxt.config.ts`, `app/app.vue`, and route-specific `useHead` calls. Check all relevant locations when changing SEO behavior.
+- Permanent SEO redirects for old website routes live in `nuxt.config.ts` route rules: `/contact` -> `/#kontakt`, `/location` -> `/#anfahrt`, and `/imprint` -> `/impressum`.
 - Visitors.now tracking is injected globally from `nuxt.config.ts` using the public project token. Cloudflare Turnstile is loaded by the contact form when configured. Keep both aligned with `app/pages/datenschutz.vue`.
 
 ## Maintenance Expectations

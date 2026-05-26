@@ -97,6 +97,7 @@ npm run preview
 - Visitors.now tracking is loaded globally from `nuxt.config.ts` with the public project token.
 - Core business content should be updated in `app/data/site.ts` first so pages and components stay consistent.
 - Static SEO files live in `public/robots.txt` and `public/sitemap.xml`; update them when public routes or canonical URLs change.
+- Permanent SEO redirects for old website routes live in `nuxt.config.ts`: `/contact` -> `/#kontakt`, `/location` -> `/#anfahrt`, and `/imprint` -> `/impressum`.
 
 ## Agent Instructions
 

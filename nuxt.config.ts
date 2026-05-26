@@ -2,6 +2,11 @@ export default defineNuxtConfig({
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },
 	modules: ['@nuxtjs/tailwindcss', '@nuxtjs/turnstile'],
+	routeRules: {
+		'/contact': { redirect: { to: '/#kontakt', statusCode: 301 } },
+		'/location': { redirect: { to: '/#anfahrt', statusCode: 301 } },
+		'/imprint': { redirect: { to: '/impressum', statusCode: 301 } }
+	},
 	turnstile: {
 		siteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY
 	},
