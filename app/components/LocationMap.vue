@@ -1,5 +1,5 @@
 <template>
-	<div class="reveal relative min-h-[340px] overflow-hidden rounded-[18px] border border-[#2a261f] bg-[#0d0c09] md:min-h-[460px]">
+	<div class="reveal relative min-h-[340px] overflow-hidden rounded-[18px] border border-[#2a2e33] bg-[#0e1012] md:min-h-[460px]">
 		<iframe
 			class="absolute inset-0 h-full w-full"
 			:src="embedUrl"
@@ -9,7 +9,7 @@
 			referrerpolicy="no-referrer-when-downgrade"
 		/>
 
-		<div class="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0d0c09]/90 via-[#0d0c09]/55 to-transparent p-4 sm:p-5">
+		<div class="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0e1012]/90 via-[#0e1012]/55 to-transparent p-4 sm:p-5">
 			<div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
 				<div>
 					<div class="font-display text-xl font-bold tracking-tight text-white">CarMarkt</div>

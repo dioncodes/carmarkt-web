@@ -24,7 +24,7 @@ app/
   composables/
     useRevealOnScroll.ts   Client-side reveal-on-scroll behavior
   data/
-    site.ts                Business details, navigation, services, contact links, request reasons
+    site.ts                Business details, navigation, services with descriptions, contact links, request reasons
   pages/
     index.vue              Homepage composition and LocalBusiness/Person JSON-LD
     impressum.vue          German legal notice page
