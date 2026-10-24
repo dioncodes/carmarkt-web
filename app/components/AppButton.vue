@@ -2,7 +2,7 @@
 	<NuxtLink
 		:to="to"
 		:class="[
-			'group inline-flex h-12 items-center justify-center gap-2.5 rounded-full px-5 text-[0.95rem] font-semibold transition duration-200 hover:-translate-y-0.5 hover:shadow-lift',
+			'group inline-flex h-12 items-center justify-center gap-2.5 rounded-full px-5 text-[0.95rem] font-semibold transition duration-200 hover:shadow-lift',
 			size === 'lg' && 'h-14 px-7 text-base',
 			size === 'sm' && 'h-10 px-4 text-sm',
 			variantClasses

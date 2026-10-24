@@ -63,7 +63,7 @@ export default defineNuxtConfig({
 					content: 'CarMarkt ist die freie Kfz-Werkstatt von Mark Purushotham in Mülheim an der Ruhr. Reparatur, Inspektion, Ölwechsel, TÜV/HU vor Ort und Termine nach Absprache.'
 				},
 				{ name: 'robots', content: 'index, follow' },
-				{ name: 'theme-color', content: '#15120e' },
+				{ name: 'theme-color', content: '#16181b' },
 				{
 					name: 'keywords',
 					content: 'CarMarkt, Mark Purushotham, freie Werkstatt Mülheim, Werkstatt Mülheim Dümpten, Kfz Werkstatt Mülheim, TÜV Mülheim, Inspektion Mülheim'
@@ -90,7 +90,7 @@ export default defineNuxtConfig({
 				{ rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
 				{
 					rel: 'stylesheet',
-					href: 'https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap'
+					href: 'https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Manrope:wght@300;400;500;600;700&display=swap'
 				}
 			],
 			script: [

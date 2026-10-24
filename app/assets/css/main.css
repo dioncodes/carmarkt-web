@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 :root {
-	--color-bg: 244 241 234;
-	--color-warm: 236 231 219;
+	--color-bg: 243 244 245;
+	--color-subtle: 231 233 235;
 	--color-surface: 255 255 255;
-	--color-ink: 21 18 14;
-	--color-muted: 108 101 93;
-	--color-line: 217 211 198;
+	--color-ink: 20 22 25;
+	--color-muted: 97 102 109;
+	--color-line: 214 217 221;
 	--color-accent: 177 11 22;
-	--color-dark: 20 17 13;
-	--color-dark-2: 31 27 22;
+	--color-dark: 22 24 27;
+	--color-dark-2: 31 34 38;
 	--ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -98,13 +98,13 @@
 	}
 
 	.form-control::placeholder {
-		color: #a39c91;
+		color: #9ca1a8;
 	}
 
 	.form-control:focus {
 		outline: 0;
 		border-color: rgb(var(--color-ink));
-		box-shadow: 0 0 0 4px rgba(15, 17, 12, 0.06);
+		box-shadow: 0 0 0 4px rgba(16, 18, 22, 0.06);
 	}
 
 	.form-control[type="datetime-local"] {
@@ -131,12 +131,12 @@
 
 	.info-label,
 	.footer-heading {
-		font-family: theme('fontFamily.mono');
-		font-size: 11px;
-		font-weight: 500;
-		letter-spacing: 0.12em;
+		font-family: theme('fontFamily.display');
+		font-size: 11.5px;
+		font-weight: 600;
+		letter-spacing: 0.1em;
 		text-transform: uppercase;
-		color: #9a9388;
+		color: #9a9fa7;
 	}
 
 	.footer-heading {
@@ -211,38 +211,10 @@
 
 	.legal-updated {
 		padding-top: 26px;
-		font-family: theme('fontFamily.mono');
+		font-family: theme('fontFamily.display');
 		font-size: 12px !important;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
-	}
-}
-
-.live-dot {
-	width: 6px;
-	height: 6px;
-	border-radius: 999px;
-	background: #2dd47a;
-	box-shadow: 0 0 0 0 rgba(45, 212, 122, 0.6);
-	animation: pulse 2.2s var(--ease) infinite;
-}
-
-.closed-dot .live-dot {
-	background: rgb(var(--color-accent));
-	animation: none;
-}
-
-@keyframes pulse {
-	0% {
-		box-shadow: 0 0 0 0 rgba(45, 212, 122, 0.55);
-	}
-
-	70% {
-		box-shadow: 0 0 0 10px rgba(45, 212, 122, 0);
-	}
-
-	100% {
-		box-shadow: 0 0 0 0 rgba(45, 212, 122, 0);
 	}
 }
 

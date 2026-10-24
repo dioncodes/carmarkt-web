@@ -69,7 +69,7 @@
 					<p v-if="errors.turnstile" class="mt-1.5 text-sm text-accent" role="alert">{{ errors.turnstile }}</p>
 				</div>
 
-				<div class="mt-2 grid items-center gap-5 border-t border-[#e6e1d4] pt-5 sm:grid-cols-[1fr_auto]">
+				<div class="mt-2 grid items-center gap-5 border-t border-[#e3e5e8] pt-5 sm:grid-cols-[1fr_auto]">
 					<div>
 						<p class="max-w-[50ch] text-[12.5px] leading-normal text-muted">
 							Mit Absenden werden die Angaben zur Bearbeitung der Anfrage verarbeitet. Details stehen im
@@ -80,7 +80,7 @@
 						</p>
 					</div>
 					<button
-						class="inline-flex h-14 items-center justify-center gap-2.5 rounded-full bg-accent px-7 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#8a0810] hover:shadow-lift disabled:pointer-events-none disabled:opacity-60"
+						class="inline-flex h-14 items-center justify-center gap-2.5 rounded-full bg-accent px-7 font-semibold text-white transition hover:bg-[#8a0810] hover:shadow-lift disabled:pointer-events-none disabled:opacity-60"
 						type="submit"
 						:disabled="isSubmitting"
 					>

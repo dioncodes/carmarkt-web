@@ -5,7 +5,7 @@
 				<p class="eyebrow reveal">
 					CarMarkt · Mark Purushotham · Mülheim an der Ruhr · seit 1999
 				</p>
-				<h1 class="reveal whitespace-pre-line font-display text-[clamp(3rem,8vw,8rem)] font-extrabold leading-[0.92] tracking-[-0.045em] text-ink">
+				<h1 class="reveal whitespace-pre-line font-display text-[clamp(3rem,8vw,8rem)] font-extrabold leading-[0.95] tracking-[-0.035em] text-ink">
 					<span class="text-accent">CarMarkt.</span>
 					Freie Werkstatt in Mülheim.
 				</h1>

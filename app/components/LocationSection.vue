@@ -14,18 +14,18 @@
 				<LocationMap />
 
 				<div class="reveal flex flex-col gap-8">
-					<div class="border-y border-[#2a261f] py-5">
+					<div class="border-y border-[#2a2e33] py-5">
 						<span class="info-label">Adresse</span>
 						<span class="mt-1.5 block font-display text-xl font-semibold tracking-tight">
 							Oberhausener Straße 213<br>
 							45476 Mülheim an der Ruhr
 						</span>
-						<span class="mt-1 block text-sm text-[#9a9388]">Im Hinterhof der TÜV-Nord-Prüfstelle.</span>
+						<span class="mt-1 block text-sm text-[#9a9fa7]">Im Hinterhof der TÜV-Nord-Prüfstelle.</span>
 					</div>
 
 					<div class="-mt-1 flex flex-col gap-1">
-						<div v-for="(step, index) in steps" :key="step" class="grid grid-cols-[40px_1fr] gap-4 border-b border-[#2a261f] py-4 text-base leading-normal">
-							<span class="font-display text-[22px] font-bold leading-none text-[#9a9388]">{{ index + 1 }}</span>
+						<div v-for="(step, index) in steps" :key="step" class="grid grid-cols-[40px_1fr] gap-4 border-b border-[#2a2e33] py-4 text-base leading-normal">
+							<span class="font-display text-[22px] font-bold leading-none text-[#9a9fa7]">{{ index + 1 }}</span>
 							<div v-html="step" />
 						</div>
 					</div>

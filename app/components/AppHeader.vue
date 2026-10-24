@@ -1,18 +1,15 @@
 <template>
 	<header>
-		<div class="bg-dark text-xs font-mono tracking-[0.06em] text-[#9a9388]">
+		<div class="bg-dark text-[13px] text-[#9a9fa7]">
 			<div class="site-container flex h-9 items-center justify-between gap-4 overflow-hidden">
 				<div class="flex min-w-0 items-center gap-5">
-					<span class="inline-flex items-center gap-2 whitespace-nowrap">
-						<span class="live-dot" />
-						<span>Termin nach Vereinbarung</span>
-					</span>
-					<span class="text-[#3a3530]">·</span>
-					<span class="hidden whitespace-nowrap sm:inline">Oberhausener Str. 213, Mülheim · direkt an der A40</span>
+					<span class="whitespace-nowrap">Termin nach Vereinbarung</span>
+					<span class="hidden text-[#3a3f45] lg:inline">·</span>
+					<span class="hidden whitespace-nowrap lg:inline">Oberhausener Str. 213, Mülheim · direkt an der A40</span>
 				</div>
 				<div class="hidden items-center gap-4 whitespace-nowrap md:flex">
 					<a class="hover:text-bg" href="tel:+491722178878">Mobil 0172 / 217 88 78</a>
-					<span class="text-[#3a3530]">·</span>
+					<span class="text-[#3a3f45]">·</span>
 					<a class="hover:text-bg" href="tel:+4920838547960">0208 / 385 479 60</a>
 				</div>
 			</div>

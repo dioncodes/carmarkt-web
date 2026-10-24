@@ -49,7 +49,7 @@ const localBusinessJsonLd = {
 		'@type': 'Offer',
 		itemOffered: {
 			'@type': 'Service',
-			name: service
+			name: service.name
 		}
 	})),
 	founder: {

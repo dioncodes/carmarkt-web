@@ -35,11 +35,31 @@ export const business = {
 }
 
 export const services = [
-	'Kfz-Reparaturen',
-	'Inspektion & Ölwechsel',
-	'TÜV / Hauptuntersuchung',
-	'Kaufberatung',
-	'Unfallinstandsetzung'
+	{
+		name: 'Kfz-Reparaturen',
+		description: 'Motor, Bremsen, Fahrwerk und Elektrik - für alle Marken.',
+		icon: 'repair'
+	},
+	{
+		name: 'Inspektion & Ölwechsel',
+		description: 'Regelmäßige Wartung nach Herstellervorgaben.',
+		icon: 'oil'
+	},
+	{
+		name: 'TÜV / Hauptuntersuchung',
+		description: 'Vorab-Check und Mängelbeseitigung vor der Prüfung.',
+		icon: 'inspection'
+	},
+	{
+		name: 'Kaufberatung',
+		description: 'Gebrauchtwagen-Check, bevor Sie sich entscheiden.',
+		icon: 'purchase'
+	},
+	{
+		name: 'Unfallinstandsetzung',
+		description: 'Schadensaufnahme und Reparatur nach einem Unfall.',
+		icon: 'accident'
+	}
 ]
 
 export const contactLinks = [

@@ -39,7 +39,7 @@ app/
   composables/
     useRevealOnScroll.ts   Client-side reveal-on-scroll behavior
   data/
-    site.ts                Canonical business data, nav items, services, contacts, request reasons
+    site.ts                Canonical business data, nav items, services (name, description, icon key), contacts, request reasons
   pages/
     index.vue              Homepage composition plus JSON-LD structured data
     impressum.vue          German legal notice page
@@ -88,6 +88,7 @@ Do not commit real secrets. `.env` and `.env.*` are ignored except `.env.example
 ## Implementation Notes
 
 - Prefer updating `app/data/site.ts` for business facts, contact details, services, navigation, and request reasons before duplicating values in components.
+- Each service in `app/data/site.ts` has a `name`, a short `description`, and an `icon` key mapped to a `lucide-vue-next` icon in `ServicesSection.vue`. The homepage JSON-LD only uses the service names.
 - Keep visible site copy in German unless there is a specific reason to add another language.
 - Use existing Vue single-file component patterns and Nuxt auto-import conventions.
 - The project uses the Nuxt 4 app directory structure. Vue app files live under `app/`; Nitro endpoints remain under root-level `server/`; static public assets remain under root-level `public/`.

@@ -6,7 +6,7 @@
 					<div class="mb-5 h-[52px]">
 						<AppLogo light />
 					</div>
-					<p class="max-w-[32ch] text-[15px] leading-normal text-[#9a9388]">
+					<p class="max-w-[32ch] text-[15px] leading-normal text-[#9a9fa7]">
 						Freie Kfz-Werkstatt in Mülheim an der Ruhr - seit 1999. Inhaber: Mark Purushotham.
 					</p>
 				</div>
@@ -16,7 +16,7 @@
 					<p class="m-0 text-[15.5px] leading-normal text-bg">
 						Oberhausener Straße 213<br>
 						45476 Mülheim an der Ruhr<br>
-						<span class="text-[#9a9388]">A40 · Ausfahrt Mülheim-Styrum</span>
+						<span class="text-[#9a9fa7]">A40 · Ausfahrt Mülheim-Styrum</span>
 					</p>
 				</div>
 
@@ -38,7 +38,7 @@
 				</div>
 			</div>
 
-			<div class="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-[#2a261f] pt-6 font-mono text-[11.5px] tracking-[0.06em] text-[#9a9388]">
+			<div class="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-[#2a2e33] pt-6 text-[13px] text-[#9a9fa7]">
 				<span>© 1999-2026 CarMarkt · Mark Purushotham</span>
 				<span>Mülheim an der Ruhr</span>
 			</div>
